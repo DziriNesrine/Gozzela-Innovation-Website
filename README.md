@@ -15,7 +15,7 @@
 
 ### Demo Screeshots
 
-![Pixology Desktop Demo](./readme-images/ "Desktop Demo")
+![Pixology Desktop Demo](./assets/images/figmaland-figma.jpg "Desktop Demo")
 
 ### Prerequisites
 
