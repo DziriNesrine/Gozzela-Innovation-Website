@@ -104,17 +104,17 @@
           <div class="hero-content">
 
             <h1 class="h1 hero-title">
-            <span class="has-before">Contactez-nous </span> Chez Gozzela Innovation
+            Contactez-nous
             </h1>
 
             <p class="hero-text">
-                L’équipe Gozzela Innovation est à votre écoute. Contactez-nous à tout moment, nous vous répondrons dans les plus brefs délais.
+               L’équipe de Gozzela Innovation est à votre entière disposition. N’hésitez pas à nous contacter à tout moment. Nous nous engageons à vous répondre dans les plus brefs délais
             </p>
 
-            <ul class="social-list">
+           <ul class="social-list">
 
               <li>
-                <a href="#" class="social-link" style="--color: hsl(241, 77%, 63%);">
+                <a href="https://www.facebook.com/share/19Dkd3gaSu/?mibextid=qi2Omg" class="social-link" style="--color: hsl(241, 77%, 63%);">
                   <ion-icon name="logo-facebook"></ion-icon>
 
                   <span class="span">Facebook</span>
@@ -122,20 +122,22 @@
               </li>
 
               <li>
-                <a href="#" class="social-link" style="--color: hsl(0, 100%, 50%);">
-                  <ion-icon name="logo-youtube"></ion-icon>
-
-                  <span class="span">Youtube</span>
+                <a href="https://wa.me/message/3U7XGTDTJEK2B1" class="social-link" style="--color: hsl(134, 61%, 41%);">
+                  <ion-icon name="logo-whatsapp"></ion-icon>
+              
+                  <span class="span">WhatsApp</span>
                 </a>
               </li>
+              
 
               <li>
-                <a href="#" class="social-link" style="--color: hsl(203, 89%, 53%);">
-                  <ion-icon name="logo-twitter"></ion-icon>
-
-                  <span class="span">Twitter</span>
+                <a href="https://www.linkedin.com/in/jihed-aboulkacem-0b723125a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app " class="social-link" style="--color: hsl(201, 100%, 35%);">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+              
+                  <span class="span">LinkedIn</span>
                 </a>
               </li>
+              
 
             </ul>
 
@@ -154,18 +156,33 @@
       <form class="form-box">
         <div class="container-block form-wrapper">
           <div class="responsive-container-block">
-            <div class="responsive-cell-block wk-ipadp-6 wk-tab-12 wk-mobile-12 wk-desk-6" id="i10mt-4">
-              <p class="text-blk input-title" >
-                Nom
-              </p>
-              <input class="input" id="ijowk-4" name="Nom">
-            </div>
-            <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
-              <p class="text-blk input-title">
-                Prénom
-              </p>
-              <input class="input" id="indfi-3" name="Prénom">
-            </div>
+           <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+                <p class="text-blk input-title">Vous êtes</p>
+                <select class="input" id="user-type" name="userType" required onchange="handleUserTypeChange()">
+                  <option value="" disabled selected hidden>Veuillez sélectionner</option>
+                  <option value="entreprise">Une entreprise</option>
+                  <option value="particulier">Un particulier</option>
+                  <option value="particulier">Autre</option>
+                </select>
+              </div>
+
+              <!-- Champ conditionnel -->
+              <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12" id="extra-field" style="display: none;">
+                <p class="text-blk input-title" id="extra-label"></p>
+                <input class="input" type="text" id="extra-input" name="extraInfo" required>
+              </div>
+              <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+                <p class="text-blk input-title">Service souhaité</p>
+                <select class="input" id="service-select" name="service" required>
+                  <option value="" disabled selected hidden>Veuillez sélectionner un service</option>
+                  <option value="app-mobile">Développement d'une application mobile</option>
+                  <option value="site-pro">Création d'un site web professionnel</option>
+                  <option value="erp">Mise en place d'un ERP sur mesure</option>
+                  <option value="site-vitrine">Création d’un site web vitrine</option>
+                  <option value="autre">Autre projet digital</option>
+                </select>
+              </div>
+
             <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
               <p class="text-blk input-title">
                 Email
@@ -444,6 +461,27 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+  function handleUserTypeChange() {
+    const select = document.getElementById("user-type");
+    const selectedValue = select.value;
+    const extraField = document.getElementById("extra-field");
+    const label = document.getElementById("extra-label");
+    const input = document.getElementById("extra-input");
+
+    if (selectedValue === "entreprise") {
+      label.textContent = "Nom de l'entreprise *";
+      input.placeholder = "Entrez le nom de l'entreprise";
+      extraField.style.display = "block";
+    } else if (selectedValue === "particulier") {
+      label.textContent = "Votre nom complet *";
+      input.placeholder = "Entrez votre nom complet";
+      extraField.style.display = "block";
+    } else {
+      extraField.style.display = "none";
+    }
+  }
+</script>
 
 </body>
 
